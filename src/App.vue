@@ -5,7 +5,7 @@
     <!--結果の表示-->
     <h2>結果は…{{ resultMessage }}！</h2>
     <!--もう一度ボタン-->
-    <button class="button button-retry" v-on:click="start" disabled>もういちど</button>
+    <button class="button button-retry" v-on:click="start">もういちど</button>
     
     <!--敵の手-->
     <div class="imgArea">
@@ -72,9 +72,6 @@ export default {
       for(let btn of btns){
         btn.setAttribute('disabled', true)
       }
-      // リトライボタンを押せるようにする
-      var retryBtn = document.querySelector('.button-retry')
-      retryBtn.removeAttribute('disabled')
     },
     // 勝敗のメッセージを決めるメソッド
     resultJanken(myHand, enemyHand) {
@@ -97,12 +94,7 @@ export default {
         btn.removeAttribute('disabled')
         btn.classList.remove('is-selected')
       }
-      
-      var retryBtn = document.querySelector('.button-retry')
-      if(retryBtn){
-        retryBtn.setAttribute('disabled', true)
-      }
-      
+
       this.resultMessage = ''
     }
 
