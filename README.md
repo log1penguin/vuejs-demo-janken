@@ -8,7 +8,7 @@
 npm install vue-cli -g
 # vue-cliで生成
 vue init browserify-simple janken
-# 生成されたディレクトリへ移
+# 生成されたディレクトリへ移る
 cd janken
 # node_modulesをインストール
 npm install

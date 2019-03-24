@@ -45,13 +45,10 @@ export default {
   // 使用するメソッド
   methods: {
     // 敵の手を切り替える
-    changeImg(number) {
-      if(number && Math.abs(number) <= this.imgList.length){
-        this.src = this.imgList(number)
-      } else {
-        var num = Math.floor(Math.random() * this.imgList.length)
-        this.src = this.imgList[num]
-      }
+    changeImg() {
+      // 0以上1未満の数値*3の数以下の最大の整数
+      var num = Math.floor(Math.random() * this.imgList.length)
+      this.src = this.imgList[num]
     },
     start() {
       this.reset()
@@ -61,8 +58,10 @@ export default {
     },
     // 自分の手ボタンが押されたら走るメソッド
     onSelected(e) {
+      // 繰り返し動作のキャンセル
       clearInterval(this.timer)
       
+      // イベントを発生させたオブジェクトの参照
       let button = e.target
       let enemyHand = parseInt(this.imgList.indexOf(this.src), 10) 
       let myHand = parseInt(button.value, 10)
